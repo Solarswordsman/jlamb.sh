@@ -24,6 +24,14 @@ beforeAll(async () => {
 	await import("./main");
 });
 
+describe("prompt-char custom element", () => {
+	it("injects the ❯ glyph into empty tags", () => {
+		const glyphs = [...document.querySelectorAll("prompt-char")];
+		expect(glyphs.length).toBeGreaterThan(0);
+		expect(glyphs.every((el) => el.textContent === "❯")).toBe(true);
+	});
+});
+
 describe("boot sequence", () => {
 	it("starts in the typing phase", () => {
 		expect(el("#boot").hidden).toBe(false);
@@ -56,6 +64,8 @@ describe("command line drawer", () => {
 		expect(el("#cli").hidden).toBe(true);
 		key(window, "/");
 		expect(el("#cli").hidden).toBe(false);
+		// The footer's fake prompt hides (via this class) while the drawer is open.
+		expect(document.body.classList.contains("cli-open")).toBe(true);
 
 		const input = el("#cli-input") as HTMLInputElement;
 		input.value = "help";
@@ -79,6 +89,7 @@ describe("command line drawer", () => {
 		expect(el("#cli-log").textContent).toBe("");
 		key(window, "Escape");
 		expect(el("#cli").hidden).toBe(true);
+		expect(document.body.classList.contains("cli-open")).toBe(false);
 	});
 
 	it("prints the sudo denial when the nav sudo item is clicked", () => {

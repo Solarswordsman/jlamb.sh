@@ -1,4 +1,5 @@
 import "./style.css";
+import "./prompt-char";
 import { config } from "./config";
 import { exec } from "./commands";
 import { initCli, openCli, appendEntry } from "./cli";

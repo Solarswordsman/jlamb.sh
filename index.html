@@ -22,14 +22,14 @@
 			<span class="seg seg-git"><span>&#xe0a0;</span>main</span>
 			<span class="seg-cap"></span>
 		</div>
-		<div class="boot-line"><span class="prompt-char">&#x276f; </span><span id="typed"></span><span class="cursor cursor-big"></span></div>
+		<div class="boot-line"><prompt-char></prompt-char> <span id="typed"></span><span class="cursor cursor-big"></span></div>
 	</div>
 
 	<!-- phase 2: the page is the script's output -->
 	<main id="page" class="container page" hidden>
 
 		<div class="hist">
-			<span class="prompt-char">&#x276f;</span>
+			<prompt-char></prompt-char>
 			<span class="hist-cmd">./jlamb.sh</span>
 			<span class="spacer"></span>
 			<span class="hist-status">&#x2713; &#xb7; 0.3s</span>
@@ -61,25 +61,25 @@
 		</header>
 
 		<section id="projects" class="section section-projects bootline" style="--d:.75s">
-			<div class="caption">$ ls ~/projects --live</div>
+			<div class="caption"><prompt-char></prompt-char> ls ~/projects --live</div>
 			<div class="projects-grid">
 				<a class="card" href="https://pt.jlamb.sh" target="_blank" rel="noopener">
 					<div class="card-head"><span class="card-title">pt.jlamb.sh</span><span class="chip chip-live">&#x25cf; live</span></div>
-					<div class="card-desc">a little tool, running in your browser</div>
+					<div class="card-desc">physical therapy exercise library & routine planner</div>
 				</a>
 				<a class="card" href="https://caelia.jlamb.sh" target="_blank" rel="noopener">
 					<div class="card-head"><span class="card-title">caelia.jlamb.sh</span><span class="chip chip-live">&#x25cf; live</span></div>
-					<div class="card-desc">roleplaying, made interactive</div>
+					<div class="card-desc">caelia vordiani, exemplar - diabolic journal (pf2)</div>
 				</a>
 				<div class="card-soon">
-					<div class="card-head"><span class="card-soon-title">next-thing/</span><span class="chip chip-soon">&#x25cb; soon</span></div>
-					<div class="card-soon-desc">reserved for the next experiment</div>
+					<div class="card-head"><span class="card-soon-title">something-else/</span><span class="chip chip-soon">&#x25cb; soon</span></div>
+					<div class="card-soon-desc">there's always more to do</div>
 				</div>
 			</div>
 		</section>
 
 		<section id="now" class="section bootline" style="--d:.95s">
-			<div class="caption">$ cat now.md</div>
+			<div class="caption"><prompt-char></prompt-char> cat now.md</div>
 			<div class="now-block">
 				<span class="bullet">&#x25b8;</span> building cool stuff for ttrpg's<br>
 				<span class="bullet">&#x25b8;</span> tinkering and hacking things<br>
@@ -90,7 +90,7 @@
 		<section id="shelf" class="section bootline" style="--d:1.15s">
 			<div class="shelf-grid">
 				<div>
-					<div class="caption">$ ls ~/cheatsheets</div>
+					<div class="caption"><prompt-char></prompt-char> ls ~/cheatsheets</div>
 					<div class="file-list">
 						<div class="file-row"><span class="file-name">tmux.md</span><span class="file-soon">soon</span></div>
 						<div class="file-row"><span class="file-name">git.md</span><span class="file-soon">soon</span></div>
@@ -99,7 +99,7 @@
 					</div>
 				</div>
 				<div>
-					<div class="caption">$ ls ~/links</div>
+					<div class="caption"><prompt-char></prompt-char> ls ~/links</div>
 					<div class="file-list">
 						<div class="file-row"><span class="file-name">tools.md</span><span class="file-soon">soon</span></div>
 						<div class="file-row"><span class="file-name">reading.md</span><span class="file-soon">soon</span></div>
@@ -110,7 +110,7 @@
 		</section>
 
 		<section id="contact" class="section bootline" style="--d:1.35s">
-			<div class="caption">$ cat contact.md</div>
+			<div class="caption"><prompt-char></prompt-char> cat contact.md</div>
 			<div class="pill-row">
 				<a class="pill" href="https://github.com/solarswordsman" target="_blank" rel="noopener">github &#x2192; solarswordsman</a>
 				<a class="pill" href="mailto:mail@jlamb.sh">mail &#x2192; mail@jlamb.sh</a>
@@ -118,12 +118,12 @@
 		</section>
 
 		<div id="sudo-hint" class="sudo-hint bootline" style="--d:1.55s">
-			<div><span class="prompt-char">&#x276f; </span><span class="cmd-white">sudo ls ~/private</span></div>
+			<div><prompt-char></prompt-char> <span class="cmd-white">sudo ls ~/private</span></div>
 			<div class="sudo-out">visitor is not in the sudoers file. this incident will be reported.</div>
 		</div>
 
 		<footer class="footer bootline" style="--d:1.75s">
-			<span class="prompt-char">&#x276f;</span>
+			<prompt-char></prompt-char>
 			<span class="cursor cursor-small"></span>
 			<span>press <button id="footer-slash" class="kbd" type="button">/</button> for the command line</span>
 			<span class="spacer"></span>
@@ -137,7 +137,7 @@
 		<div class="cli-inner">
 			<div id="cli-log" class="cli-log"></div>
 			<div class="cli-input-row">
-				<span class="cli-prompt">&#x276f;</span>
+				<prompt-char class="cli-prompt"></prompt-char>
 				<input id="cli-input" class="cli-input" placeholder="try `help`" spellcheck="false" autocomplete="off" autocapitalize="off">
 				<button id="cli-esc" class="esc-chip" type="button">esc</button>
 			</div>

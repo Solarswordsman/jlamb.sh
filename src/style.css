@@ -85,7 +85,7 @@ button {
 	flex: 1;
 }
 
-.prompt-char {
+prompt-char {
 	color: #5fd75f;
 	font-weight: 700;
 }
@@ -265,9 +265,11 @@ button {
 	padding: 18px 0;
 }
 
+/* Section captions read as transient-prompt history lines: green ❯ glyph,
+   command in the same muted grey as the ./jlamb.sh history line. */
 .caption {
 	font-size: 12px;
-	color: #4e9a06;
+	color: #8d94a8;
 	margin-bottom: 14px;
 }
 
@@ -419,6 +421,12 @@ button {
 	margin-top: 6px;
 }
 
+/* While the real CLI drawer is open, the footer's fake prompt would read as a
+   second prompt — hide it without collapsing the layout. */
+body.cli-open .footer {
+	visibility: hidden;
+}
+
 .footer {
 	border-top: 1px solid rgba(255, 255, 255, .08);
 	margin-top: 44px;
@@ -499,8 +507,6 @@ button {
 }
 
 .cli-prompt {
-	color: #5fd75f;
-	font-weight: 700;
 	font-size: 14px;
 }
 

@@ -10,11 +10,13 @@ let histCursor = -1;
 
 export function openCli(): void {
 	cliEl.hidden = false;
+	document.body.classList.add("cli-open");
 	inputEl.focus();
 }
 
 export function closeCli(): void {
 	cliEl.hidden = true;
+	document.body.classList.remove("cli-open");
 }
 
 export function appendEntry(cmd: string, out: string): void {
@@ -22,13 +24,12 @@ export function appendEntry(cmd: string, out: string): void {
 	entry.className = "cli-entry";
 
 	const cmdLine = document.createElement("div");
-	const prompt = document.createElement("span");
-	prompt.className = "cli-prompt";
-	prompt.textContent = "❯ ";
+	const prompt = document.createElement("prompt-char");
 	const cmdSpan = document.createElement("span");
 	cmdSpan.className = "cmd-white";
 	cmdSpan.textContent = cmd;
-	cmdLine.append(prompt, cmdSpan);
+	// Space text node: the glyph carries no trailing space (see prompt-char.ts).
+	cmdLine.append(prompt, " ", cmdSpan);
 	entry.append(cmdLine);
 
 	const outEl = document.createElement("div");
