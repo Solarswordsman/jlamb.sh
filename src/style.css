@@ -1,0 +1,533 @@
+/* Self-hosted MesloLGS NF (romkatv/powerlevel10k-media) — the p10k nerd font.
+   PUA glyphs used: U+F17C tux, U+E0A0 git branch, U+E0B1 thin separator. */
+@font-face {
+	font-family: 'MesloLGS NF';
+	src: url('/fonts/MesloLGS-NF-Regular.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'MesloLGS NF';
+	src: url('/fonts/MesloLGS-NF-Bold.ttf') format('truetype');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'MesloLGS NF';
+	src: url('/fonts/MesloLGS-NF-Italic.ttf') format('truetype');
+	font-weight: 400;
+	font-style: italic;
+	font-display: swap;
+}
+
+html {
+	background: #101116;
+}
+
+body {
+	margin: 0;
+	background: #101116;
+	min-height: 100vh;
+	font-family: 'MesloLGS NF', 'Fira Code', 'JetBrains Mono', monospace;
+	color: #c8cede;
+}
+
+a {
+	color: #6ca1e0;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #9ec3f0;
+	text-decoration: underline;
+}
+
+button {
+	background: none;
+	border: none;
+	padding: 0;
+	font: inherit;
+	color: inherit;
+}
+
+[hidden] {
+	display: none !important;
+}
+
+@keyframes blink {
+	0%, 49% { opacity: 1; }
+	50%, 100% { opacity: 0; }
+}
+
+@keyframes bootline {
+	from { opacity: 0; transform: translateY(5px); }
+	to { opacity: 1; transform: none; }
+}
+
+.bootline {
+	animation: bootline .45s ease var(--d, 0s) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.bootline { animation: none; }
+	.cursor { animation: none; }
+}
+
+.container {
+	max-width: 960px;
+	margin: 0 auto;
+	padding: 0 24px;
+}
+
+.spacer {
+	flex: 1;
+}
+
+.prompt-char {
+	color: #5fd75f;
+	font-weight: 700;
+}
+
+.cursor {
+	display: inline-block;
+	background: #c8cede;
+	animation: blink 1.1s step-end infinite;
+}
+
+.cursor-big {
+	width: 14px;
+	height: 32px;
+	vertical-align: -3px;
+	margin-left: 3px;
+}
+
+.cursor-small {
+	width: 8px;
+	height: 15px;
+}
+
+/* ===== p10k prompt segments (Classic style) ===== */
+
+.prompt-row {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.seg {
+	display: inline-flex;
+	align-items: center;
+	height: 34px;
+	background: #383838;
+	padding: 0 13px;
+	font-size: 16px;
+}
+
+.seg-user {
+	gap: 8px;
+	color: #f0f0f0;
+}
+
+.seg-icon {
+	font-size: 17px;
+}
+
+.seg-dir {
+	color: #37a6d4;
+}
+
+.seg-git {
+	gap: 7px;
+	color: #5fd75f;
+}
+
+.seg-sep {
+	padding: 0;
+	color: #6e6e6e;
+}
+
+/* Solid end-cap via the CSS-triangle border trick. */
+.seg-cap {
+	width: 0;
+	height: 0;
+	border-top: 17px solid transparent;
+	border-bottom: 17px solid transparent;
+	border-left: 15px solid #383838;
+}
+
+/* ===== phase 1: boot ===== */
+
+.boot {
+	padding-top: 26px;
+}
+
+.boot-line {
+	font-size: clamp(26px, 5vw, 42px);
+	font-weight: 700;
+	color: #e8ecf5;
+	letter-spacing: -1px;
+	line-height: 1.15;
+	margin-top: 20px;
+}
+
+/* ===== phase 2: page as script output ===== */
+
+.page {
+	padding-bottom: 120px;
+}
+
+.hist {
+	display: flex;
+	align-items: baseline;
+	gap: 8px;
+	padding-top: 26px;
+	font-size: 13px;
+}
+
+.hist-cmd {
+	color: #8d94a8;
+}
+
+.hist-status {
+	color: #4e9a06;
+	font-size: 11.5px;
+	white-space: nowrap;
+	flex: none;
+}
+
+.nav {
+	display: flex;
+	align-items: center;
+	padding-top: 14px;
+	font-size: 12.5px;
+}
+
+.nav-brand {
+	color: #6f7486;
+}
+
+.nav-links {
+	display: flex;
+	gap: 20px;
+	flex-wrap: wrap;
+}
+
+.nav-links a {
+	color: #8d94a8;
+}
+
+.nav-links a:hover {
+	color: #e8ecf5;
+	text-decoration: none;
+}
+
+.nav-sudo {
+	color: #cc4b4b;
+	cursor: pointer;
+}
+
+.nav-sudo:hover {
+	color: #e06a6a;
+}
+
+.hero {
+	padding: 56px 0 40px;
+}
+
+.hero-title {
+	font-size: clamp(30px, 5vw, 46px);
+	font-weight: 700;
+	color: #e8ecf5;
+	letter-spacing: -1px;
+	line-height: 1.15;
+	margin: 22px 0 0;
+}
+
+.hero-title .accent {
+	color: #37a6d4;
+}
+
+.hero-desc {
+	font-size: 15px;
+	color: #8d94a8;
+	margin: 14px 0 0;
+	max-width: 560px;
+	line-height: 1.65;
+}
+
+.section {
+	padding: 26px 0;
+}
+
+.section-projects {
+	padding: 18px 0;
+}
+
+.caption {
+	font-size: 12px;
+	color: #4e9a06;
+	margin-bottom: 14px;
+}
+
+.projects-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	gap: 14px;
+}
+
+.card {
+	display: block;
+	border: 1px solid rgba(255, 255, 255, .12);
+	border-radius: 8px;
+	padding: 18px;
+	color: inherit;
+	text-decoration: none;
+}
+
+.card:hover {
+	border-color: #37a6d4;
+	text-decoration: none;
+	color: inherit;
+}
+
+.card-head {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+}
+
+.card-title {
+	color: #6ca1e0;
+	font-weight: 700;
+	font-size: 14.5px;
+}
+
+.chip {
+	font-size: 11px;
+	white-space: nowrap;
+}
+
+.chip-live {
+	color: #4e9a06;
+}
+
+.chip-soon {
+	color: #6f7486;
+}
+
+.card-desc {
+	color: #8d94a8;
+	font-size: 12.5px;
+	margin-top: 8px;
+	line-height: 1.6;
+}
+
+.card-soon {
+	border: 1px dashed rgba(255, 255, 255, .14);
+	border-radius: 8px;
+	padding: 18px;
+}
+
+.card-soon-title {
+	color: #5b6172;
+	font-size: 14.5px;
+}
+
+.card-soon-desc {
+	color: #5b6172;
+	font-size: 12.5px;
+	margin-top: 8px;
+	line-height: 1.6;
+}
+
+.now-block {
+	border-left: 2px solid #383838;
+	padding-left: 18px;
+	font-size: 13.5px;
+	color: #aab2c5;
+	line-height: 2;
+}
+
+.bullet {
+	color: #d8a03c;
+}
+
+.shelf-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	gap: 24px;
+}
+
+.file-list {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	font-size: 13.5px;
+}
+
+.file-row {
+	display: flex;
+	justify-content: space-between;
+	padding: 7px 10px;
+	border-radius: 5px;
+}
+
+.file-row:hover {
+	background: #1a1b23;
+}
+
+.file-name {
+	color: #6ca1e0;
+}
+
+.file-soon {
+	color: #6f7486;
+	font-size: 11.5px;
+}
+
+.pill-row {
+	display: flex;
+	gap: 12px;
+	flex-wrap: wrap;
+	font-size: 13px;
+}
+
+.pill {
+	border: 1px solid rgba(255, 255, 255, .15);
+	border-radius: 5px;
+	padding: 8px 14px;
+}
+
+.pill:hover {
+	border-color: #37a6d4;
+	text-decoration: none;
+}
+
+.sudo-hint {
+	padding: 26px 0 0;
+	font-size: 13px;
+}
+
+.cmd-white {
+	color: #e8ecf5;
+}
+
+.sudo-out {
+	color: #cc4b4b;
+	margin-top: 6px;
+}
+
+.footer {
+	border-top: 1px solid rgba(255, 255, 255, .08);
+	margin-top: 44px;
+	padding-top: 16px;
+	font-size: 12.5px;
+	color: #5b6172;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	flex-wrap: wrap;
+}
+
+.kbd {
+	color: #e8ecf5;
+	background: #1f2029;
+	padding: 1px 7px;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+.replay {
+	cursor: pointer;
+	color: #6ca1e0;
+	border: 1px solid rgba(255, 255, 255, .15);
+	border-radius: 4px;
+	padding: 2px 8px;
+	font-size: 11.5px;
+}
+
+.replay:hover {
+	color: #9ec3f0;
+	border-color: #37a6d4;
+}
+
+/* ===== command line drawer ===== */
+
+.cli {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: #16171f;
+	border-top: 1px solid rgba(255, 255, 255, .14);
+	box-shadow: 0 -8px 30px rgba(0, 0, 0, .55);
+	z-index: 50;
+}
+
+.cli-inner {
+	max-width: 960px;
+	margin: 0 auto;
+	padding: 14px 24px 16px;
+}
+
+.cli-log {
+	max-height: 38vh;
+	overflow-y: auto;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.cli-entry {
+	font-size: 13px;
+}
+
+.cli-out {
+	color: #aab2c5;
+	white-space: pre-wrap;
+	line-height: 1.7;
+	margin-top: 2px;
+}
+
+.cli-input-row {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin-top: 10px;
+}
+
+.cli-prompt {
+	color: #5fd75f;
+	font-weight: 700;
+	font-size: 14px;
+}
+
+.cli-input {
+	flex: 1;
+	background: transparent;
+	border: none;
+	outline: none;
+	color: #e8ecf5;
+	font-family: inherit;
+	font-size: 14px;
+	padding: 6px 0;
+}
+
+.cli-input::placeholder {
+	color: #5b6172;
+}
+
+.esc-chip {
+	color: #6f7486;
+	cursor: pointer;
+	font-size: 12px;
+	border: 1px solid rgba(255, 255, 255, .12);
+	border-radius: 4px;
+	padding: 2px 8px;
+}
+
+.esc-chip:hover {
+	color: #e8ecf5;
+}

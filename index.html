@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>jlamb.sh</title>
+	<meta name="description" content="jlamb — software engineer. this page is alive.">
+	<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%23101116'/%3E%3Ctext x='8' y='12' font-size='11' font-family='monospace' font-weight='bold' fill='%235fd75f' text-anchor='middle'%3E%E2%9D%AF%3C/text%3E%3C/svg%3E">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+	<script type="module" src="/src/main.ts"></script>
+</head>
+<body>
+
+	<!-- phase 1: fresh prompt at top, typing -->
+	<div id="boot" class="container boot" hidden>
+		<div class="prompt-row">
+			<span class="seg seg-user"><span class="seg-icon">&#xf17c;</span>jlamb</span>
+			<span class="seg seg-sep">&#xe0b1;</span>
+			<span class="seg seg-dir">~/www</span>
+			<span class="seg seg-sep">&#xe0b1;</span>
+			<span class="seg seg-git"><span>&#xe0a0;</span>main</span>
+			<span class="seg-cap"></span>
+		</div>
+		<div class="boot-line"><span class="prompt-char">&#x276f; </span><span id="typed"></span><span class="cursor cursor-big"></span></div>
+	</div>
+
+	<!-- phase 2: the page is the script's output -->
+	<main id="page" class="container page" hidden>
+
+		<div class="hist">
+			<span class="prompt-char">&#x276f;</span>
+			<span class="hist-cmd">./jlamb.sh</span>
+			<span class="spacer"></span>
+			<span class="hist-status">&#x2713; &#xb7; 0.3s</span>
+		</div>
+
+		<nav class="nav bootline" style="--d:.15s">
+			<span class="nav-brand">jlamb.sh</span>
+			<span class="spacer"></span>
+			<span class="nav-links">
+				<a href="#projects">projects</a>
+				<a href="#now">now</a>
+				<a href="#shelf">shelf</a>
+				<a href="#contact">contact</a>
+				<button id="nav-sudo" class="nav-sudo" type="button">sudo</button>
+			</span>
+		</nav>
+
+		<header class="hero">
+			<div class="prompt-row">
+				<span class="seg seg-user"><span class="seg-icon">&#xf17c;</span>jlamb</span>
+				<span class="seg seg-sep">&#xe0b1;</span>
+				<span class="seg seg-dir">~/www</span>
+				<span class="seg seg-sep">&#xe0b1;</span>
+				<span class="seg seg-git"><span>&#xe0a0;</span>main</span>
+				<span class="seg-cap"></span>
+			</div>
+			<h1 class="hero-title bootline" style="--d:.35s">jlamb<span class="accent">.sh</span></h1>
+			<p class="hero-desc bootline" style="--d:.55s">hi! i like making computers do cool things, and helping others do the same. this page is alive. check out some cool stuff.</p>
+		</header>
+
+		<section id="projects" class="section section-projects bootline" style="--d:.75s">
+			<div class="caption">$ ls ~/projects --live</div>
+			<div class="projects-grid">
+				<a class="card" href="https://pt.jlamb.sh" target="_blank" rel="noopener">
+					<div class="card-head"><span class="card-title">pt.jlamb.sh</span><span class="chip chip-live">&#x25cf; live</span></div>
+					<div class="card-desc">a little tool, running in your browser</div>
+				</a>
+				<a class="card" href="https://caelia.jlamb.sh" target="_blank" rel="noopener">
+					<div class="card-head"><span class="card-title">caelia.jlamb.sh</span><span class="chip chip-live">&#x25cf; live</span></div>
+					<div class="card-desc">roleplaying, made interactive</div>
+				</a>
+				<div class="card-soon">
+					<div class="card-head"><span class="card-soon-title">next-thing/</span><span class="chip chip-soon">&#x25cb; soon</span></div>
+					<div class="card-soon-desc">reserved for the next experiment</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="now" class="section bootline" style="--d:.95s">
+			<div class="caption">$ cat now.md</div>
+			<div class="now-block">
+				<span class="bullet">&#x25b8;</span> building cool stuff for ttrpg's<br>
+				<span class="bullet">&#x25b8;</span> tinkering and hacking things<br>
+				<span class="bullet">&#x25b8;</span> other stuff, for sure
+			</div>
+		</section>
+
+		<section id="shelf" class="section bootline" style="--d:1.15s">
+			<div class="shelf-grid">
+				<div>
+					<div class="caption">$ ls ~/cheatsheets</div>
+					<div class="file-list">
+						<div class="file-row"><span class="file-name">tmux.md</span><span class="file-soon">soon</span></div>
+						<div class="file-row"><span class="file-name">git.md</span><span class="file-soon">soon</span></div>
+						<div class="file-row"><span class="file-name">vim.md</span><span class="file-soon">soon</span></div>
+						<div class="file-row"><span class="file-name">dotfiles/</span><span class="file-soon">soon</span></div>
+					</div>
+				</div>
+				<div>
+					<div class="caption">$ ls ~/links</div>
+					<div class="file-list">
+						<div class="file-row"><span class="file-name">tools.md</span><span class="file-soon">soon</span></div>
+						<div class="file-row"><span class="file-name">reading.md</span><span class="file-soon">soon</span></div>
+						<div class="file-row"><span class="file-name">me.md</span><span class="file-soon">soon</span></div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="contact" class="section bootline" style="--d:1.35s">
+			<div class="caption">$ cat contact.md</div>
+			<div class="pill-row">
+				<a class="pill" href="https://github.com/solarswordsman" target="_blank" rel="noopener">github &#x2192; solarswordsman</a>
+				<a class="pill" href="mailto:mail@jlamb.sh">mail &#x2192; mail@jlamb.sh</a>
+			</div>
+		</section>
+
+		<div id="sudo-hint" class="sudo-hint bootline" style="--d:1.55s">
+			<div><span class="prompt-char">&#x276f; </span><span class="cmd-white">sudo ls ~/private</span></div>
+			<div class="sudo-out">visitor is not in the sudoers file. this incident will be reported.</div>
+		</div>
+
+		<footer class="footer bootline" style="--d:1.75s">
+			<span class="prompt-char">&#x276f;</span>
+			<span class="cursor cursor-small"></span>
+			<span>press <button id="footer-slash" class="kbd" type="button">/</button> for the command line</span>
+			<span class="spacer"></span>
+			<button id="replay" class="replay" type="button">&#x21bb; replay</button>
+		</footer>
+
+	</main>
+
+	<!-- command line drawer -->
+	<div id="cli" class="cli" hidden>
+		<div class="cli-inner">
+			<div id="cli-log" class="cli-log"></div>
+			<div class="cli-input-row">
+				<span class="cli-prompt">&#x276f;</span>
+				<input id="cli-input" class="cli-input" placeholder="try `help`" spellcheck="false" autocomplete="off" autocapitalize="off">
+				<button id="cli-esc" class="esc-chip" type="button">esc</button>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
