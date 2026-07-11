@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 import { beforeAll, describe, expect, it, vi } from "vitest";
 import { readFileSync } from "node:fs";
-import { fileURLToPath } from "node:url";
+import { resolve } from "node:path";
 
 const TYPE_SPEED = 85;
 
@@ -16,7 +16,7 @@ function key(target: EventTarget, key: string): void {
 }
 
 beforeAll(async () => {
-	const html = readFileSync(fileURLToPath(new URL("../index.html", import.meta.url)), "utf8");
+	const html = readFileSync(resolve(process.cwd(), "index.html"), "utf8");
 	// Take the real markup but strip the module script — the app is imported below.
 	document.body.innerHTML = /<body>([\s\S]*)<\/body>/.exec(html)![1];
 	vi.stubGlobal("matchMedia", (query: string) => ({ matches: false, media: query }));
